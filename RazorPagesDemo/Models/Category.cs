@@ -9,6 +9,8 @@ namespace RazorPagesDemo.Models
         [Required]
         public string? Name { get; set; }
         [Required]
+        [Display(Name ="Display Order")]
+        [Range(0,100)]
         public int DisplayOrder { get; set; }
     }
 }
