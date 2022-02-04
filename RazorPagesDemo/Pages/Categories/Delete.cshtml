@@ -1,15 +1,11 @@
 ﻿@page
-@model RazorPagesDemo.Pages.Categories.EditModel
+@model RazorPagesDemo.Pages.Categories.DeleteModel
 
 <form method="post">
     <div class="border p-3 mt-4" style="max-width:450px">
         <div class="row pb-2">
-            <h2 class="text-primary pl-3 ">Edit Category</h2>
+            <h2 class="text-primary pl-3 ">Delete Category</h2>
             <hr />
-        </div>
-        <div asp-validation-summary="All" class="text-danger" ></div>
-        <div class="mb-3" style="max-width:400px">
-            <input hidden asp-for="Category.Id" class="form-control"/>
         </div>
         <div class="mb-3" style="max-width:400px">
             <label asp-for="Category.Id" >Id: Cannot Change</label>
@@ -17,14 +13,14 @@
         </div>
         <div class="mb-3" style="max-width:400px">
             <label asp-for="Category.Name" >Name:</label>
-            <input asp-for="Category.Name" class="form-control"/>
+            <input disabled asp-for="Category.Name" class="form-control"/>
         </div>
         <div class="mb-3" style="max-width:400px">
             <label asp-for="Category.DisplayOrder" >Display Order:</label>
-            <input asp-for="Category.DisplayOrder" class="form-control"/>
+            <input disabled asp-for="Category.DisplayOrder" class="form-control"/>
         </div>
-        <button type="submit" class="btn btn-primary" style="width:150px;margin-right:5px" >Update</button>
-        <a asp-page="Index" class="btn btn-danger" style="width:150px" >Cancel</a>
+        <button type="submit" class="btn btn-danger" style="width:150px;margin-right:5px" >Delete</button>
+        <a asp-page="Index" class="btn btn-secondary" style="width:150px" >Cancel</a>
     </div>
 </form>
 
