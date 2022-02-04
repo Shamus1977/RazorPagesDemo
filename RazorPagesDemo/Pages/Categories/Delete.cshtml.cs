@@ -23,10 +23,12 @@ namespace RazorPagesDemo.Pages.Categories
         public async Task<IActionResult> OnPost()
         {
             Category category = _dbContext.Categories.Find(Category.Id);
+            string name = category.Name;
             if(category != null)
             {
                 _dbContext.Remove(category);
                 await _dbContext.SaveChangesAsync();
+                TempData["success"] = name + " Deleted Successfully";
                 return RedirectToPage("Index");
             }
             return Page();

@@ -30,6 +30,7 @@ namespace RazorPagesDemo.Pages.Categories
             {
                 _dbContext.Categories.Update(Category);
                 await _dbContext.SaveChangesAsync();
+                TempData["success"] = Category.Name + " Updated Successfully";
                 return RedirectToPage("Index");
             }
             return Page();
