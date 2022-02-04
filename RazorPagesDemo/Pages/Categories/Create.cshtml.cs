@@ -21,9 +21,17 @@ namespace RazorPagesDemo.Pages.Categories
 
         public async Task<IActionResult> OnPost()
         {
-            await _dbContext.Categories.AddAsync(Category);
-            await _dbContext.SaveChangesAsync();
-            return RedirectToPage("Index");
+            if(Category.Name == Category.DisplayOrder.ToString())
+            {
+                ModelState.AddModelError(string.Empty, "Category Name and Display Order must not be the same.");
+            }
+            if (ModelState.IsValid)
+            {
+                await _dbContext.Categories.AddAsync(Category);
+                await _dbContext.SaveChangesAsync();
+                return RedirectToPage("Index");
+            }
+            return Page();
         }
     }
 }
