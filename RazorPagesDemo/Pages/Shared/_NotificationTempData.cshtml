@@ -1,0 +1,12 @@
+﻿@if(TempData["success"] != null)
+{
+    <ul style="margin-top:50px">
+        <li>@TempData["success"]</li>
+    </ul>
+}
+@if(TempData["error"] != null)
+{
+    <ul style="margin-top:50px">
+        <li>@TempData["error"]</li>
+    </ul>
+}
